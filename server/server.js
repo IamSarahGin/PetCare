@@ -11,7 +11,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
     origin: [" http://localhost:3000" , "https://65fb6c6d69184a3b6e83d814--dynamic-strudel-b3b34d.netlify.app"],
-    method: ["POST", "GET"],
+    methods: ["POST", "GET"],
     credentials: true
 }));
 
