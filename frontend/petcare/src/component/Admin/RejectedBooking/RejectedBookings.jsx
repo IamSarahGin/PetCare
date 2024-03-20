@@ -23,7 +23,7 @@ const RejectedBookings = () => {
 
     const fetchRejectedBookings = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/api/bookings/rejected', { withCredentials: true });
+            const response = await axios.get('https://petcare-ycz3.onrender.com/api/bookings/rejected', { withCredentials: true });
             setRejectedBookings(response.data);
         } catch (error) {
             console.error('Error fetching rejected bookings:', error);

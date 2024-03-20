@@ -13,7 +13,7 @@ const ServiceCRUD = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/user/profile', { withCredentials: true });
+        const response = await axios.get('https://petcare-ycz3.onrender.com/api/user/profile', { withCredentials: true });
         const userData = response.data;
         const userRole = userData.role;
         setIsAdmin(userRole === 'admin');
@@ -31,7 +31,7 @@ const ServiceCRUD = () => {
 
   const fetchServices = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/serviceTypes');
+      const response = await axios.get('https://petcare-ycz3.onrender.com/serviceTypes');
       setServices(response.data);
     } catch (error) {
       console.error('Error fetching services:', error);
@@ -40,7 +40,7 @@ const ServiceCRUD = () => {
 
   const handleCreateService = async () => {
     try {
-      await axios.post('http://localhost:3001/services', { serviceType });
+      await axios.post('https://petcare-ycz3.onrender.com/services', { serviceType });
       setServiceType('');
       fetchServices();
     } catch (error) {
@@ -50,7 +50,7 @@ const ServiceCRUD = () => {
 
   const handleUpdateService = async () => {
     try {
-      await axios.put(`http://localhost:3001/service/${updateServiceId}`, { serviceType: updateServiceType });
+      await axios.put(`https://petcare-ycz3.onrender.com/service/${updateServiceId}`, { serviceType: updateServiceType });
       setUpdateServiceId(null);
       setUpdateServiceType('');
       fetchServices();
@@ -61,7 +61,7 @@ const ServiceCRUD = () => {
 
   const handleDeleteService = async (serviceId) => {
     try {
-      await axios.delete(`http://localhost:3001/service/${serviceId}`);
+      await axios.delete(`https://petcare-ycz3.onrender.com/service/${serviceId}`);
       fetchServices();
     } catch (error) {
       console.error('Error deleting service:', error);

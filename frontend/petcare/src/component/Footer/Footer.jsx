@@ -5,7 +5,7 @@ function Footer() {
     const [copyright, setCopyright] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:3001/footer')
+        axios.get('https://petcare-ycz3.onrender.com/footer')
             .then(response => {
                 if (response.data && response.data.length > 0) {
                     setCopyright(response.data[0].copyright);

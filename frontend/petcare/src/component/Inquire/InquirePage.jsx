@@ -17,7 +17,7 @@ const InquirePage = () => {
     const navigate = useNavigate();
     axios.defaults.withCredentials=true;
     useEffect(()=>{
-        axios.get('http://localhost:3001')
+        axios.get('https://petcare-ycz3.onrender.com')
         .then(res =>{
           if(res.data.Status==="Success"){
             setAuth(true)
@@ -44,7 +44,7 @@ const InquirePage = () => {
       const fetchCurrentUserLoginId = async () => {
         try {
           // Perform a request to fetch the current user's login ID
-          const response = await axios.get('http://localhost:3001/api/currentUserLoginId');
+          const response = await axios.get('https://petcare-ycz3.onrender.com/api/currentUserLoginId');
           setLoginId(response.data.userId);
         } catch (error) {
           console.error('Error fetching login ID:', error);

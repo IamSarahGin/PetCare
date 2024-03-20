@@ -12,7 +12,7 @@ const ApprovedDashBoard = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/api/user/profile', { withCredentials: true });
+                const response = await axios.get('https://petcare-ycz3.onrender.com/api/user/profile', { withCredentials: true });
                 const userData = response.data;
                 const userRole = userData.role;
                 setIsAdmin(userRole === 'admin');
@@ -30,7 +30,7 @@ const ApprovedDashBoard = () => {
     useEffect(() => {
         const fetchPendingBookings = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/api/bookings/approved', { withCredentials: true });
+                const response = await axios.get('https://petcare-ycz3.onrender.com/api/bookings/approved', { withCredentials: true });
                 setPendingBookings(response.data);
             } catch (error) {
                 console.error('Error fetching pending bookings:', error);
