@@ -10,7 +10,7 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
-    origin: ["https://petcare-ycz3.onrender.com" ,"https://65fb5ff87788093286a131fc--preeminent-melba-44b7e3.netlify.app"],
+    origin: ["https://petcare-ycz3.onrender.com" , "https://65fb5ff87788093286a131fc--preeminent-melba-44b7e3.netlify.app"],
     method: ["POST", "GET"],
     credentials: true
 }));
