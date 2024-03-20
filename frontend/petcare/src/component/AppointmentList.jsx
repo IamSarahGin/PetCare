@@ -12,7 +12,7 @@ const AppointmentList = () => {
 
   const fetchPendingBookings = async () => {
     try {
-      const response = await axios.get('https://petcare-ycz3.onrender.com/api/bookings/pending', {
+      const response = await axios.get('http://localhost:3000/api/bookings/pending', {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json'

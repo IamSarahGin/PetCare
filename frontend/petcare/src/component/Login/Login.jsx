@@ -15,7 +15,7 @@ const Login = () => {
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const response = await axios.get('https://petcare-ycz3.onrender.com/loginpageandregisterpage');
+        const response = await axios.get('http://localhost:3000/loginpageandregisterpage');
         const imageUrl = response.data[0].image;
         setValues({ ...values, imageUrl });
       } catch (error) {
