@@ -189,7 +189,7 @@ app.post('/bookings', verifyUser, (req, res) => {
   const { petName, petId, breed, age, color, serviceId, date, time, symptoms } = req.body;
   const userId = req.userId; 
   const email = req.email; 
-  const insertBookingQuery = 'INSERT INTO Booking (petName, petId, breed, age, color, serviceId, date, time, symptoms, userId, userEmail, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+  const insertBookingQuery = 'INSERT INTO booking (petName, petId, breed, age, color, serviceId, date, time, symptoms, userId, userEmail, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
   const status = 'pending'; 
   db.query(insertBookingQuery, [petName, petId, breed, age, color, serviceId, date, time, symptoms, userId, email, status], (err, result) => {
     if (err) {
@@ -207,10 +207,10 @@ app.post('/bookings', verifyUser, (req, res) => {
 app.get('/bookings', verifyUser, (req, res) => {
   const userId = req.userId; 
   const getBookingsQuery = `
-  SELECT Booking.*, Users.email AS userEmail
-  FROM Booking 
-  INNER JOIN Users ON Booking.userId = Users.userId 
-  WHERE Booking.userId = ?`;
+  SELECT booking.*, users.email AS userEmail
+  FROM booking 
+  INNER JOIN users ON booking.userId = users.userId 
+  WHERE booking.userId = ?`;
   db.query(getBookingsQuery, [userId], (err, results) => {
       if (err) {
           console.error('Error fetching bookings:', err);
@@ -227,7 +227,7 @@ app.get('/existingBookings', verifyUser, (req, res) => {
 
   // Query to check if there are existing bookings for the user and date
   const checkExistingBookingsQuery = `
-    SELECT * FROM Booking
+    SELECT * FROM booking
     WHERE userId = ? AND date = ?`;
 
   db.query(checkExistingBookingsQuery, [userId, date], (err, results) => {
