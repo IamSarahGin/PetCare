@@ -1,0 +1,38 @@
+.rejected-bookings-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+.card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.card-body {
+  padding: 20px;
+}
+.rejected-bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.rejected-bookings-table th,
+.rejected-bookings-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+.rejected-bookings-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+  text-align: left;
+}
+.rejected-bookings-table td {
+  text-align: left;
+}

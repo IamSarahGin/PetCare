@@ -1,0 +1,29 @@
+.service-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+.service-col {
+  margin-bottom: 20px;
+}
+.service-img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+.service-img:hover {
+  transform: scale(1.05);
+}
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.h2-animation {
+  animation: slideIn 0.5s ease forwards;
+}

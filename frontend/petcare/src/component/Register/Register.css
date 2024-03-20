@@ -1,0 +1,44 @@
+.registerBackground {
+    background-color: #f2f2f2;
+}
+.create-account {
+    white-space: nowrap; 
+}
+.cardSize {
+    width: 60%; 
+    margin: 40px auto;
+    float: none;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+.image {
+    max-width: 100%;
+    height: auto; 
+}
+.form {
+    margin: 0 auto;
+    max-width: 500px; 
+}
+.form input[type='text'],
+.form input[type='email'],
+.form input[type='password'] {
+    border-radius: 10px; 
+}
+.top-alert-container {
+    position: fixed;
+    top: 50px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 100%; 
+    max-width: 500px;
+    z-index: 9999;
+}
+
+@media screen and (max-width: 768px) {
+    .form {
+        padding-left: 20px; 
+    }
+    .cardSize {
+        width: 100%; 
+    }
+}

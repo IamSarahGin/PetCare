@@ -1,0 +1,75 @@
+body {
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  position: relative;
+  min-height: 100vh;
+}
+.calendarContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 1px solid red;
+  margin-top: 30px;
+  z-index: 1;
+}
+.calendar-header h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.calendar-date-picker {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.time-slot-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.time-slot-button:hover {
+  background-color: #0056b3;
+}
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+.calendarContainer {
+  position: static;
+  transform: none;
+  margin-top: 200px; 
+}
+.calendar-header h1 {
+  font-size: 20px;
+}
+.time-slot-button {
+  padding: 8px 16px; 
+  }
+}

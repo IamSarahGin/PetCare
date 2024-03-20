@@ -1,0 +1,21 @@
+.about-container {
+    min-height: 100vh;
+    padding-top: 120px;
+    background: linear-gradient(to bottom, #8c0000 50%, white 50%);
+}
+.about-card {
+    width: 80%;
+    animation: fadeIn 1s ease;
+}
+.about-image {
+    max-width: 100%;
+    height: auto;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
