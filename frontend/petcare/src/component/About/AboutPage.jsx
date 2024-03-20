@@ -12,7 +12,7 @@ const AboutPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://petcare-ycz3.onrender.com/aboutpage');
+                const response = await axios.get('http://localhost:3000/aboutpage');
                 setData(response.data);
             } catch (error) {
                 setError('Error fetching data');

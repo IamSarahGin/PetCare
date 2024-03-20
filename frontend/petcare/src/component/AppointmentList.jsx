@@ -26,7 +26,7 @@ const AppointmentList = () => {
 
   const updateBookingStatus = async (bookingId, newStatus) => {
     try {
-      await axios.post(`https://petcare-ycz3.onrender.com/api/bookings/update-status/${bookingId}/${newStatus}`, {}, {
+      await axios.post(`http://localhost:3000/api/bookings/update-status/${bookingId}/${newStatus}`, {}, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json'

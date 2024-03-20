@@ -9,7 +9,7 @@ const BookingList = () => {
 
     useEffect(() => {
         // Fetch bookings data
-        axios.get('https://petcare-ycz3.onrender.com/bookings')
+        axios.get('http://localhost:3000/bookings')
             .then(response => {
                 setBookings(response.data);
             })

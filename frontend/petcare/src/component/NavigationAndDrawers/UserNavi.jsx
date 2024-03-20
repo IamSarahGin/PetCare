@@ -25,7 +25,7 @@ const UserNavi = () => {
     useEffect(() => {
         const fetchUserNavData = async () => {
             try {
-                const response = await axios.get('https://petcare-ycz3.onrender.com/user_navigation');
+                const response = await axios.get('http://localhost:3000/user_navigation');
                 setUserNavData(response.data[0]);
             } catch (error) {
                 console.error('Error fetching navigation data:', error);
@@ -36,7 +36,7 @@ const UserNavi = () => {
     }, []);
 
     useEffect(() => {
-        axios.get('https://petcare-ycz3.onrender.com/api/currentUserEmail', { withCredentials: true })
+        axios.get('http://localhost:3000/api/currentUserEmail', { withCredentials: true })
             .then(response => {
                 setUserEmail(response.data.email);
             })
@@ -47,7 +47,7 @@ const UserNavi = () => {
 
     const handleLogout = () => {
         console.log("Logging out...");
-        axios.get('https://petcare-ycz3.onrender.com/logout', { withCredentials: true })
+        axios.get('http://localhost:3000logout', { withCredentials: true })
             .then(res => {
                 console.log("Logout response:", res);
                 if (res.status === 200) {

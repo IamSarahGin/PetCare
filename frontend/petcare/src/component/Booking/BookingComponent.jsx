@@ -28,13 +28,13 @@ const BookingComponent = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const serviceResponse = await axios.get('https://petcare-ycz3.onrender.com/serviceTypes');
+                const serviceResponse = await axios.get('http://localhost:3000/serviceTypes');
                 setServiceTypes(serviceResponse.data);
 
-                const petResponse = await axios.get('https://petcare-ycz3.onrender.com/petTypes');
+                const petResponse = await axios.get('http://localhost:3000/petTypes');
                 setPetTypes(petResponse.data);
 
-                const userResponse = await axios.get('https://petcare-ycz3.onrender.com/api/currentUserLoginId');
+                const userResponse = await axios.get('http://localhost:3000/api/currentUserLoginId');
                 setUserId(userResponse.data.userId);
                 setUserEmail(userResponse.data.userEmail);
             } catch (error) {
@@ -47,7 +47,7 @@ const BookingComponent = () => {
     // Function to check if the user has existing bookings for the selected date
     const checkExistingBookings = async () => {
         try {
-            const response = await axios.get(`https://petcare-ycz3.onrender.com/existingBookings?userId=${userId}&date=${date}`);
+            const response = await axios.get(`http://localhost:3000/existingBookings?userId=${userId}&date=${date}`);
             return response.data.hasExistingBookings; // Returns true if the user has existing bookings for the selected date
         } catch (error) {
             console.error('Error checking existing bookings: ', error);
@@ -77,7 +77,7 @@ const BookingComponent = () => {
         }
         try {
             // No need to pass userEmail from state, use the one obtained from the backend
-            const bookingResponse = await axios.post('https://petcare-ycz3.onrender.com/bookings', {
+            const bookingResponse = await axios.post('http://localhost:3000/bookings', {
                 petName,
                 petId,
                 breed,
@@ -92,7 +92,7 @@ const BookingComponent = () => {
             });
             console.log(bookingResponse.data);
 
-            await axios.post('https://petcare-ycz3.onrender.com/bookTimeSlot', {
+            await axios.post('http://localhost:3000/bookTimeSlot', {
                 date,
                 time: time.split('-')[0],
                 userId,
@@ -137,7 +137,7 @@ const BookingComponent = () => {
     const handleFetchTimeSlots = async () => {
         try {
             console.log("Fetching time slots for date:", date);
-            const response = await axios.get(`https://petcare-ycz3.onrender.com/timeSlots?date=${date}`);
+            const response = await axios.get(`http://localhost:3000/timeSlots?date=${date}`);
             const filteredTimeSlots = response.data.filter(slot => {
                 const currentTime = new Date();
                 const slotTime = new Date(`${date}T${slot.startTime}`);

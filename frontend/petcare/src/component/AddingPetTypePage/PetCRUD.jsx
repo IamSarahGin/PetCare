@@ -49,7 +49,7 @@ const PetCRUD = () => {
 
   const handleUpdatePet = async () => {
     try {
-      await axios.put(`https://petcare-ycz3.onrender.com/api/pet/${updatePetId}`, { petType: updatePetType });
+      await axios.put(`http://localhost:3000/api/pet/${updatePetId}`, { petType: updatePetType });
       setUpdatePetId(null);
       setUpdatePetType('');
       fetchPets();
@@ -60,7 +60,7 @@ const PetCRUD = () => {
 
   const handleDeletePet = async (petId) => {
     try {
-      await axios.delete(`https://petcare-ycz3.onrender.com/api/pet/${petId}`);
+      await axios.delete(`http://localhost:3000/api/pet/${petId}`);
       fetchPets();
     } catch (error) {
       console.error('Error deleting pet:', error);

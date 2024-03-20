@@ -14,7 +14,7 @@ const WelcomePage = () => {
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get('https://petcare-ycz3.onrender.com/auth/status')
+    axios.get('http://localhost:3000/auth/status')
       .then(res => {
         console.log('Response from API:', res); 
         if (res.data.status === 'Success') {
