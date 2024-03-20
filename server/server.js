@@ -10,7 +10,7 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
-    origin: [" http://localhost:3000" , "https://65fb5ff87788093286a131fc--preeminent-melba-44b7e3.netlify.app"],
+    origin: [" http://localhost:3000" , "https://65fb6c6d69184a3b6e83d814--dynamic-strudel-b3b34d.netlify.app"],
     method: ["POST", "GET"],
     credentials: true
 }));
