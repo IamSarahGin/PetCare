@@ -2,7 +2,7 @@ import express from 'express'
 import mysql from 'mysql'
 import cors from 'cors'
 import jwt from 'jsonwebtoken'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import cookieParser from 'cookie-parser'
 
 const salt = 10;
@@ -17,11 +17,12 @@ app.use(cors({
 
 
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "db_petCare"
-})
+  host: "bpqdps7jseiq3tz9uhbn-mysql.services.clever-cloud.com",
+  user: "u82plvrejz57d3ny",
+  password: "6I916ct2X2nGs5orWRXq",
+  database: "bpqdps7jseiq3tz9uhbn"
+});
+
 
 
 // Middleware to verify user authentication
