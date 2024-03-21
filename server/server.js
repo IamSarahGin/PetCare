@@ -9,23 +9,11 @@ const salt = 10;
 const app = express();
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors({
-  origin: ["http://localhost:3000", "https://65fbd9b8f0a2cf85b70571aa--super-starlight-7d5ece.netlify.app", "https://pet-care-olive.vercel.app"],
-  methods: ["POST", "GET"],
-  credentials: true
-}));
-
-
-
-
-app.options('*', cors());
-
-const db = mysql.createConnection({
-  host: "bpqdps7jseiq3tz9uhbn-mysql.services.clever-cloud.com",
-  user: "u82plvrejz57d3ny",
-  password: "6I916ct2X2nGs5orWRXq",
-  database: "bpqdps7jseiq3tz9uhbn"
-});
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://65fbd9b8f0a2cf85b70571aa--super-starlight-7d5ece.netlify.app',
+  'https://pet-care-olive.vercel.app'
+];
 
 const corsOptions = {
   origin: (origin, callback) => {
@@ -40,6 +28,18 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+
+
+app.options('*', cors());
+
+const db = mysql.createConnection({
+  host: "bpqdps7jseiq3tz9uhbn-mysql.services.clever-cloud.com",
+  user: "u82plvrejz57d3ny",
+  password: "6I916ct2X2nGs5orWRXq",
+  database: "bpqdps7jseiq3tz9uhbn"
+});
+
 
 // Middleware to verify user authentication
 const verifyUser = (req, res, next) => {
