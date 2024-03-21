@@ -13,7 +13,7 @@ const PetCRUD = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/user/profile', { withCredentials: true });
+        const response = await axios.get('http://localhost:3001/api/user/profile', { withCredentials: true });
         const userData = response.data;
         const userRole = userData.role;
         setIsAdmin(userRole === 'admin');
@@ -30,7 +30,7 @@ const PetCRUD = () => {
 
   const fetchPets = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/pet');
+      const response = await axios.get('http://localhost:3001/api/pet');
       setPets(response.data);
     } catch (error) {
       console.error('Error fetching pets:', error);
@@ -39,7 +39,7 @@ const PetCRUD = () => {
 
   const handleCreatePet = async () => {
     try {
-      await axios.post('http://localhost:3000/api/pet', { petType });
+      await axios.post('http://localhost:3001/api/pet', { petType });
       setPetType('');
       fetchPets();
     } catch (error) {
@@ -49,7 +49,7 @@ const PetCRUD = () => {
 
   const handleUpdatePet = async () => {
     try {
-      await axios.put(`http://localhost:3000/api/pet/${updatePetId}`, { petType: updatePetType });
+      await axios.put(`http://localhost:3001/api/pet/${updatePetId}`, { petType: updatePetType });
       setUpdatePetId(null);
       setUpdatePetType('');
       fetchPets();
@@ -60,7 +60,7 @@ const PetCRUD = () => {
 
   const handleDeletePet = async (petId) => {
     try {
-      await axios.delete(`http://localhost:3000/api/pet/${petId}`);
+      await axios.delete(`http://localhost:3001/api/pet/${petId}`);
       fetchPets();
     } catch (error) {
       console.error('Error deleting pet:', error);

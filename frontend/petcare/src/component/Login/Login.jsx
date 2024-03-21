@@ -15,7 +15,7 @@ const Login = () => {
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/loginpageandregisterpage');
+        const response = await axios.get('http://localhost:3001/loginpageandregisterpage');
         const imageUrl = response.data[0].image;
         setValues({ ...values, imageUrl });
       } catch (error) {
@@ -29,7 +29,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/login', values, { withCredentials: true });
+      const response = await axios.post('http://localhost:3001/login', values, { withCredentials: true });
       if (response.data.Status === "Success") {
         navigate(response.data.role === "user" ? '/welcome' : '/admin/dashboard');
       } else {

@@ -5,7 +5,7 @@ function Footer() {
     const [copyright, setCopyright] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:3000/footer')
+        axios.get('http://localhost:3001/footer')
             .then(response => {
                 if (response.data && response.data.length > 0) {
                     setCopyright(response.data[0].copyright);

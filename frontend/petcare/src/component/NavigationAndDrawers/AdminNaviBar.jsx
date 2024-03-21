@@ -27,7 +27,7 @@ const AdminNaviBar = ({ isAdmin }) => {
     useEffect(() => {
         const fetchAdminNavData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/admin_navigation');
+                const response = await axios.get('http://localhost:3001/admin_navigation');
                 setAdminNavData(response.data[0]);
             } catch (error) {
                 console.error('Error fetching navigation data:', error);
@@ -43,7 +43,7 @@ const AdminNaviBar = ({ isAdmin }) => {
 
     const fetchAuthStatus = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/auth/status', { withCredentials: true });
+            const response = await axios.get('http://localhost:3001/auth/status', { withCredentials: true });
             setLoggedIn(true);
         } catch (error) {
             console.error('Error fetching authentication status:', error);
@@ -53,7 +53,7 @@ const AdminNaviBar = ({ isAdmin }) => {
 
     const handleLogout = async () => {
         try {
-            await axios.get('http://localhost:3000/logout', { withCredentials: true });
+            await axios.get('http://localhost:3001/logout', { withCredentials: true });
             setLoggedIn(false);
             // Redirect to the home page after logout
             navigate('/');

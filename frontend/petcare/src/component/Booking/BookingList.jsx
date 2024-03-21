@@ -9,7 +9,7 @@ const BookingList = () => {
 
     useEffect(() => {
         // Fetch bookings data
-        axios.get('http://localhost:3000/bookings')
+        axios.get('http://localhost:3001/bookings')
             .then(response => {
                 setBookings(response.data);
             })

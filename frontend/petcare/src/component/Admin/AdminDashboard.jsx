@@ -13,7 +13,7 @@ const AdminDashboard = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/api/user/profile', { withCredentials: true });
+                const response = await axios.get('http://localhost:3001/api/user/profile', { withCredentials: true });
                 const userData = response.data;
                 const userRole = userData.role;
                 setIsAdmin(userRole === 'admin');
@@ -32,7 +32,7 @@ const AdminDashboard = () => {
     useEffect(() => {
         const fetchPendingBookings = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/api/bookings/pending', { withCredentials: true });
+                const response = await axios.get('http://localhost:3001/api/bookings/pending', { withCredentials: true });
                 setPendingBookings(response.data);
             } catch (error) {
                 console.error('Error fetching pending bookings:', error);
@@ -46,7 +46,7 @@ const AdminDashboard = () => {
 
     const handleApproveBooking = async (bookingId) => {
         try {
-            await axios.post('http://localhost:3000/api/bookings/approve', { bookingId }, { withCredentials: true });
+            await axios.post('http://localhost:3001/api/bookings/approve', { bookingId }, { withCredentials: true });
             updateBookingStatus(bookingId, 'Approved');
         } catch (error) {
             console.error('Error approving booking:', error);
@@ -55,7 +55,7 @@ const AdminDashboard = () => {
 
     const handleRejectBooking = async (bookingId) => {
         try {
-            await axios.post('http://localhost:3000/api/bookings/reject', { bookingId }, { withCredentials: true });
+            await axios.post('http://localhost:3001/api/bookings/reject', { bookingId }, { withCredentials: true });
             updateBookingStatus(bookingId, 'Rejected');
         } catch (error) {
             console.error('Error rejecting booking:', error);

@@ -26,7 +26,7 @@ const Navibar = () => {
     useEffect(() => {
         const fetchNavData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/navigation');
+                const response = await axios.get('http://localhost:3001/navigation');
                 setNavData(response.data[0]);
                 setLoading(false);
             } catch (error) {

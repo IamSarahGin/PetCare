@@ -8,7 +8,7 @@ const LogoutPage = () => {
   useEffect(() => {
     const logout = async () => {
       try {
-        await axios.get('http://localhost:3000/logout');
+        await axios.get('http://localhost:3001/logout');
         // Redirect to the login page after successful logout
         navigate('/login');
       } catch (error) {

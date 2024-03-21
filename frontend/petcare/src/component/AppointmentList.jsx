@@ -12,7 +12,7 @@ const AppointmentList = () => {
 
   const fetchPendingBookings = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/bookings/pending', {
+      const response = await axios.get('http://localhost:3001/api/bookings/pending', {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ const AppointmentList = () => {
 
   const updateBookingStatus = async (bookingId, newStatus) => {
     try {
-      await axios.post(`http://localhost:3000/api/bookings/update-status/${bookingId}/${newStatus}`, {}, {
+      await axios.post(`http://localhost:3001/api/bookings/update-status/${bookingId}/${newStatus}`, {}, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json'

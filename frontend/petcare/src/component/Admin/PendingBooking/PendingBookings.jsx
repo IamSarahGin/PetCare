@@ -24,7 +24,7 @@ const PendingBookings = ({ reloadPendingBookings }) => {
     useEffect(() => {
         const fetchPendingBookings = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/api/bookings/pending', { withCredentials: true });
+                const response = await axios.get('http://localhost:3001/api/bookings/pending', { withCredentials: true });
                 const fetchedPendingBookings = response.data;
                 // Save pending bookings to local storage
                 localStorage.setItem('pendingBookings', JSON.stringify(fetchedPendingBookings));
@@ -58,10 +58,10 @@ const PendingBookings = ({ reloadPendingBookings }) => {
             let updatedStatus = 'Pending';
             if (selectedAction && selectedBookingId) {
                 if (selectedAction.startsWith('approve')) {
-                    await axios.post('http://localhost:3000/api/bookings/approve', { bookingId: selectedBookingId }, { withCredentials: true });
+                    await axios.post('http://localhost:3001/api/bookings/approve', { bookingId: selectedBookingId }, { withCredentials: true });
                     updatedStatus = 'Approved';
                 } else if (selectedAction.startsWith('reject')) {
-                    await axios.post('http://localhost:3000/api/bookings/reject', { bookingId: selectedBookingId }, { withCredentials: true });
+                    await axios.post('http://localhost:3001/api/bookings/reject', { bookingId: selectedBookingId }, { withCredentials: true });
                     updatedStatus = 'Rejected';
                 }
                 updateBookingStatus(selectedBookingId, updatedStatus);

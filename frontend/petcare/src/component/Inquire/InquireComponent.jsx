@@ -15,7 +15,7 @@ const InquireComponent = () => {
 
   const fetchCurrentUser = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/auth/status', { withCredentials: true });
+      const response = await axios.get('http://localhost:3001/auth/status', { withCredentials: true });
       setCurrentUser(response.data);
     } catch (error) {
       console.error('Error fetching current user:', error);

@@ -18,7 +18,7 @@ const CalendarWithAvailability = () => {
   useEffect(() => {
     const fetchTimeSlots = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/timeSlots?date=${date}`);
+        const response = await axios.get(`http://localhost:3001/timeSlots?date=${date}`);
         setTimeSlots(response.data);
       } catch (error) {
         console.error('Error fetching time slots:', error);
