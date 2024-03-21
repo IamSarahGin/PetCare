@@ -16,22 +16,24 @@ const WelcomePage = () => {
     axios.defaults.withCredentials = true;
     axios.get('http://localhost:3001/auth/status')
       .then(res => {
-        console.log('Response from API:', res); 
+        console.log('Response from API:', res);
         if (res.data.status === 'Success') {
           setAuth(true);
           setFirstName(res.data.firstName);
         } else {
           setAuth(false);
-          navigate('/access-denied'); 
+          // Redirect to access denied page or handle as desired
+          navigate('/access-denied');
         }
       })
       .catch(err => {
         console.error('Error:', err);
         setAuth(false);
-        navigate('/access-denied'); 
+        // Redirect to access denied page or handle as desired
+        navigate('/access-denied');
       });
   }, [navigate]);
-  
+
   return (
     <div id="wrapper">
       {auth ? (
