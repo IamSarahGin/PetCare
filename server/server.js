@@ -12,7 +12,7 @@ app.use(express.json());
 const allowedOrigins = [
   'http://localhost:3000',
   'https://65fbd9b8f0a2cf85b70571aa--super-starlight-7d5ece.netlify.app',
-  'https://pet-care-olive.vercel.app'
+  'https://pet-care-83o8yn5y1-iamsarahgins-projects.vercel.app'
 ];
 
 const corsOptions = {
