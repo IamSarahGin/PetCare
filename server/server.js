@@ -10,7 +10,7 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
-  origin: ["http://localhost:3000", "https://65fbc9f669184a797e83d84a--magenta-cuchufli-18a9b7.netlify.app", "https://pet-care-83o8yn5y1-iamsarahgins-projects.vercel.app"],
+  origin: ["http://localhost:3000", "https://65fbd9b8f0a2cf85b70571aa--super-starlight-7d5ece.netlify.app", "https://pet-care-83o8yn5y1-iamsarahgins-projects.vercel.app"],
   methods: ["POST", "GET"],
   credentials: true
 }));
@@ -57,6 +57,7 @@ app.get('/', verifyUser, (req, res) => {
     userId: req.userId
   });
 });
+
 app.get('/auth/status', verifyUser, (req, res) => {
   return res.json({
       status: "Success",
