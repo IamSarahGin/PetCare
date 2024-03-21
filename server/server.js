@@ -27,7 +27,19 @@ const db = mysql.createConnection({
   database: "bpqdps7jseiq3tz9uhbn"
 });
 
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ["POST", "GET"],
+  credentials: true
+};
 
+app.use(cors(corsOptions));
 
 // Middleware to verify user authentication
 const verifyUser = (req, res, next) => {
