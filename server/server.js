@@ -48,6 +48,24 @@ const verifyUser = (req, res, next) => {
   }
 };
 
+app.get('/', verifyUser, (req, res) => {
+  return res.json({
+    Status: "Success",
+    firstName: req.firstName,
+    email: req.email,
+    userId: req.userId
+  });
+});
+app.get('/auth/status', verifyUser, (req, res) => {
+  return res.json({
+      status: "Success",
+      loggedIn: true,
+      firstName: req.firstName,
+      email: req.email,
+      userId: req.userId,
+      role:req.role
+  });
+});
 // Middleware to verify admin role
 const verifyAdmin = (req, res, next) => {
   const userRole = req.role;
@@ -75,15 +93,6 @@ app.get('/api/user/profile', verifyUser, (req, res) => {
   });
 });
 
-  // Routes
-app.get('/', verifyUser, (req, res) => {
-  return res.json({
-    Status: "Success",
-    firstName: req.firstName,
-    email: req.email,
-    userId: req.userId
-  });
-});
 
  
 app.use('/rejected/list', verifyAdmin);
@@ -162,16 +171,7 @@ app.post('/login', (req, res) => {
   });
 });
 
-app.get('/auth/status', verifyUser, (req, res) => {
-    return res.json({
-        status: "Success",
-        loggedIn: true,
-        firstName: req.firstName,
-        email: req.email,
-        userId: req.userId,
-        role:req.role
-    });
-});
+
 
 app.get('/logout', (req, res) => {
     res.clearCookie('token');
