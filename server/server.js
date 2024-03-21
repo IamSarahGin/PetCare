@@ -97,17 +97,18 @@ app.get('/api/user/profile', verifyUser, (req, res) => {
  
 app.use('/rejected/list', verifyAdmin);
 
-
-app.get('/rejected/list', (req, res) => {
-    // Access isAdmin flag to check if user is an admin
-    if (req.isAdmin) {
-        // User is admin, allow access
-        res.send('Welcome to rejected list (Admin)');
-    } else {
-        // User is not admin, deny access
-        res.status(403).send('Access Forbidden: You are not an admin.');
-    }
+// Endpoint to get rejected list (only accessible by admin)
+app.get('/rejected/list', verifyUser, verifyAdmin, (req, res) => {
+  // Access isAdmin flag to check if user is an admin
+  if (req.isAdmin) {
+    // User is admin, allow access
+    res.send('Welcome to rejected list (Admin)');
+  } else {
+    // User is not admin, deny access
+    res.status(403).send('Access Forbidden: You are not an admin.');
+  }
 });
+
 
   //API endpoint to create register
 app.post('/register', (req, res) => {
