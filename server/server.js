@@ -75,7 +75,17 @@ const verifyAdmin = (req, res, next) => {
     return res.status(403).json({ error: 'Unauthorized' }); // User is not authorized
   }
 };
-
+// Endpoint to get rejected list (only accessible by admin)
+app.get('/rejected/list', verifyUser, verifyAdmin, (req, res) => {
+  // Check if the user is an admin
+  if (req.role === 'admin') {
+    // User is admin, allow access
+    res.send('Welcome to rejected list (Admin)');
+  } else {
+    // User is not admin, deny access
+    res.status(403).send('Access Forbidden: You are not an admin.');
+  }
+});
  // API endpoint to fetch user profile data
 app.get('/api/user/profile', verifyUser, (req, res) => {
   const userId = req.userId;
@@ -97,17 +107,7 @@ app.get('/api/user/profile', verifyUser, (req, res) => {
  
 app.use('/rejected/list', verifyAdmin);
 
-// Endpoint to get rejected list (only accessible by admin)
-app.get('/rejected/list', verifyUser, verifyAdmin, (req, res) => {
-  // Access isAdmin flag to check if user is an admin
-  if (req.isAdmin) {
-    // User is admin, allow access
-    res.send('Welcome to rejected list (Admin)');
-  } else {
-    // User is not admin, deny access
-    res.status(403).send('Access Forbidden: You are not an admin.');
-  }
-});
+
 
 
   //API endpoint to create register
